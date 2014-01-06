@@ -123,6 +123,7 @@ namespace ofxLibwebsockets {
     const std::string Connection::recv(const std::string& message) {
         std::string decoded = message;
         
+/* remove since b64_decode is deprecated
         //TODO: when libwebsockets has an API
         // to detect binary support, we should use it
         if (binary && !supportsBinary)
@@ -130,6 +131,7 @@ namespace ofxLibwebsockets {
             int decoded_len = lws_b64_decode_string(message.c_str(), &decoded[0], message.size());
             decoded.resize(decoded_len);
         }
+*/
         
         return decoded;
     }
